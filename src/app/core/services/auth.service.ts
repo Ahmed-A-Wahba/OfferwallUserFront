@@ -62,8 +62,12 @@ export class AuthService {
           this.publisherLogoUrl.set(pubLogo);
           this.userXp.set(xp);
 
-          if (token && refreshToken) {
-            this.saveTokens(token, refreshToken);
+          if (token) {
+            // Save accessToken regardless of whether refreshToken exists
+            localStorage.setItem(this.accessTokenKey, token);
+            if (refreshToken) {
+              localStorage.setItem(this.refreshTokenKey, refreshToken);
+            }
           }
 
           this.isInitialized.set(true);
