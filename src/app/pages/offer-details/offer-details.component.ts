@@ -147,7 +147,7 @@ import { OfferDto } from '../../core/models/offer.model';
       }
 
       <!-- Bottom Sticky Navigation Footer -->
-      <app-bottom-nav activeTab="offers" (tabChange)="handleTabChange($event)"></app-bottom-nav>
+      <app-bottom-nav activeTab="offers"></app-bottom-nav>
     </div>
   `
 })
@@ -214,11 +214,5 @@ export class OfferDetailsComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
-  }
-
-  handleTabChange(tab: NavTab): void {
-    if (tab === 'offers') {
-      this.router.navigate(['/dashboard']);
-    }
   }
 }
